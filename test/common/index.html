@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<head>
+  <title>Common tests</title>
+  <script src="../../src/Common/GameBoard.js"></script>
+  <script src="GameBoardTest.js"></script>
+</head>
+<body>
+  <div id="GameBoardTest"></div>
+  <script>
+    const gameBoardTest = document.getElementById("GameBoardTest");
+    const testResualt = document.createElement("p");
+    testResualt.innerText =
+      "GameBoard_WhenSwappingItemsOnGameBoard_InsureSwappingIsCorrect = " +
+      GameBoard_WhenSwappingItemsOnGameBoard_InsureSwappingIsCorrect().toString();
+    gameBoardTest.appendChild(testResualt);
+  </script>
+</body>
