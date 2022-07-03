@@ -1,0 +1,3 @@
+class BoardDisplayBase {
+  UpdateDisplay(newBoard) {}
+}
