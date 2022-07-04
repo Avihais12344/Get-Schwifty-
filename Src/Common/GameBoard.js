@@ -20,6 +20,10 @@ class GameBoard {
   get EmptyCellValue() {
     return 0;
   }
+  // The official syntax for the clone function.
+  clone() {
+    return new GameBoard([...this.#_board]);
+  }
   ElementAt(x, y) {
     return this.#_board[this.#CalculatePosition(x, y)];
   }
@@ -29,6 +33,9 @@ class GameBoard {
     let tempValue = this.#_board[sourcePos];
     this.#_board[sourcePos] = this.#_board[destPos];
     this.#_board[destPos] = tempValue;
+    console.debug(
+      `Swapped items (${sourceX}, ${sourceY}) <=> (${destX}, ${destY})`
+    );
   }
   ScanDifferences(otherBoard) {
     if (this.BoardLength != otherBoard.BoardLength) {
