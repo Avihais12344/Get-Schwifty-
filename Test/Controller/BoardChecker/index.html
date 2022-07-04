@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<head>
+  <title>Common tests</title>
+  <script src="../../../Src/Common/GameBoard.js"></script>
+  <script src="../../../Src/Controller/BoardChecker/BoardCheckerBase.js"></script>
+  <script src="../../../Src/Controller/BoardChecker/NumbersBoardChecker.js"></script>
+  <script src="NumbersBoardCheckerTest.js"></script>
+</head>
+<body>
+  <div id="resualts"></div>
+  <script>
+    const testResualts = document.getElementById("resualts");
+    const funcs = GetFuncs();
+    for (let key in Object.keys(funcs)) {
+      const testResualt = document.createElement("p");
+      console.debug(
+        "func = " + funcs[key].name + " typeof func = " + typeof funcs[key]
+      );
+      testResualt.innerText = funcs[key].name + " = " + funcs[key]().toString();
+      testResualts.appendChild(testResualt);
+    }
+  </script>
+</body>
