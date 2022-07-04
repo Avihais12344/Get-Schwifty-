@@ -32,6 +32,7 @@ class HTMLBoardDisplay extends BoardDisplayBase {
   }
   #PrepareBoard(callbackFunctionOnClick) {
     const boardLength = this.#_oldBoard.BoardLength;
+    console.debug("callback it got: " + callbackFunctionOnClick);
     for (let y = 0; y < boardLength; y++) {
       for (let x = 0; x < boardLength; x++) {
         const buttonElement = document.createElement("button");
