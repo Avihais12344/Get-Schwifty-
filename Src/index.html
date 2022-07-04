@@ -4,6 +4,18 @@
   <title>GetSchwifty</title>
   <meta encoding="UTF-8" />
   <meta name="description" content="The GetSchwifty game!" />
+  <!--A very bad practice, but the only one I know!-->
+  <script src="./Common/GameBoard.js"></script>
+  <script src="./Controller/RNG/RNGBase.js"></script>
+  <script src="./Controller/BoardChecker/BoardCheckerBase.js"></script>
+  <script src="./Controller/BoardChecker/NumbersBoardChecker.js.js"></script>
+  <script src="./Controller/BoardGenerator/BoardGeneratorBase.js"></script>
+  <script src="./Controller/BoardGenerator/NumbersBoardGenerator.js"></script>
+  <script src="./Controller/InputChecker/InputCheckerBase.js"></script>
+  <script src="./Controller/InputChecker/InputChecker.js"></script>
+  <script src="./Controller/WinChecker/WinningChecker.js"></script>
+  <script src="./View/BoardDisplayBase.js"></script>
+  <script src="./View/HTMLBoardDisplay.js"></script>
   <script src="./app.js"></script>
 </head>
 
@@ -18,4 +30,8 @@
     <p><a herf="../GetSchwifty.pdf">Get Schwifty explainng page</a></p>
     <p><a herf="../README">Readme</a></p>
   </footer>
+  <script>
+    var boardElement = document.getElementById("game-board");
+    var game = new Game(boardElement);
+  </script>
 </body>
