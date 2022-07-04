@@ -42,7 +42,8 @@ class HTMLBoardDisplay extends BoardDisplayBase {
           callbackFunctionOnClick(x, y);
         });
         // the text in the button.
-        buttonElement.innerText = this.#GenerateTextByValue(elementAtPos);
+        buttonElement.innerText =
+          elementAtPos != this.#_oldBoard.EmptyCellValue ? elementAtPos : "";
         // the id of the button.
         buttonElement.setAttribute(
           "id",
@@ -52,8 +53,5 @@ class HTMLBoardDisplay extends BoardDisplayBase {
         this.#_boardElement.appendChild(buttonElement);
       }
     }
-  }
-  #GenerateTextByValue(value) {
-    return value ? value : "";
   }
 }
