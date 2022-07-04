@@ -1,3 +1,3 @@
-class InputHandlerBase {
+class InputCheckerBase {
   CheckValidMove(gameBoard, x, y) {}
 }
