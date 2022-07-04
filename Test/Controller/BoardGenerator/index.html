@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<head>
+  <title>Common tests</title>
+  <script src="../../../Src/Common/GameBoard.js"></script>
+  <script src="../../../Src/Controller/RNG/RNGBase.js"></script>
+  <script src="../../../Src/Controller/BoardGenerator/BoardGeneratorBase.js"></script>
+  <script src="../../../Src/Controller/BoardGenerator/NumbersBoardGenerator.js"></script>
+  <script src="NumbersBoardGeneratorTest.js"></script>
+</head>
+<body>
+  <div id="resualts"></div>
+  <script>
+    const testResualts = document.getElementById("resualts");
+    const testResualt = document.createElement("p");
+    testResualt.innerText =
+      "NumbersBoardGenerator_WhenGeneratingBoard_CheckBoardGeneratedCorrectly = " +
+      NumbersBoardGenerator_WhenGeneratingBoard_CheckBoardGeneratedCorrectly().toString();
+    testResualts.appendChild(testResualt);
+  </script>
+</body>
