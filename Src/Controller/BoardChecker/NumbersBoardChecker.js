@@ -1,4 +1,7 @@
 class NumbersBoardChecker extends BoardCheckerBase {
+  constructor() {
+    super();
+  }
   IsBoardSolvable(boardToCheck) {
     const numInversions = this.#CalculateInversionsOnBoard(boardToCheck);
     // If the board has an odd number of cells.
