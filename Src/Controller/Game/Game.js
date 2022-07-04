@@ -30,7 +30,7 @@ class Game extends GameBase {
     // Check move.
     let move = this.#_inputChecker.CheckValidMove(this.GameBoard, x, y);
     if (!move) {
-      return;
+      return false;
     }
 
     // Do move.
@@ -42,6 +42,7 @@ class Game extends GameBase {
     this.#_isWon = this.#_winningChecker.CheckWinning(this.GameBoard);
     this.#_isDone =
       this.#_isWon || this.#_boardChecker.IsBoardSolvable(this.GameBoard);
+    return true;
   }
   get IsWon() {
     return this.#_isWon;
