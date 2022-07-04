@@ -6,7 +6,14 @@ class App {
     // Generate the display.
     this.BoardDisplay = new HTMLBoardDisplay(
       this.Game.GameBoard,
-      this.Game.OnNewInput,
+      (x, y) => {
+        if (this.Game.OnNewInput(x, y)) {
+          console.info("a change happened to the board!");
+          this.BoardDisplay.UpdateDisplay(this.Game.GameBoard);
+        } else {
+          console.info("Got invalid input from the user!");
+        }
+      },
       boardElement
     );
   }
@@ -22,5 +29,6 @@ class App {
       boardChecker,
       winningChecker
     );
+    this.Game.StartNewGame();
   }
 }
