@@ -16,7 +16,7 @@ class App {
           if (this.Game.IsWon) {
             console.info("User won");
           } else {
-            console.info("User lost");
+            console.info("User lost (the board is un solveable now)!");
           }
         } else {
           console.info("Got invalid input from the user!");
