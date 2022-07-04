@@ -8,12 +8,14 @@
   <script src="./Common/GameBoard.js"></script>
   <script src="./Controller/RNG/RNGBase.js"></script>
   <script src="./Controller/BoardChecker/BoardCheckerBase.js"></script>
-  <script src="./Controller/BoardChecker/NumbersBoardChecker.js.js"></script>
+  <script src="./Controller/BoardChecker/NumbersBoardChecker.js"></script>
   <script src="./Controller/BoardGenerator/BoardGeneratorBase.js"></script>
   <script src="./Controller/BoardGenerator/NumbersBoardGenerator.js"></script>
   <script src="./Controller/InputChecker/InputCheckerBase.js"></script>
   <script src="./Controller/InputChecker/InputChecker.js"></script>
   <script src="./Controller/WinChecker/WinningChecker.js"></script>
+  <script src="./Controller/Game/GameBase.js"></script>
+  <script src="./Controller/Game/Game.js"></script>
   <script src="./View/BoardDisplayBase.js"></script>
   <script src="./View/HTMLBoardDisplay.js"></script>
   <script src="./app.js"></script>
@@ -32,6 +34,6 @@
   </footer>
   <script>
     var boardElement = document.getElementById("game-board");
-    var game = new Game(boardElement);
+    var game = new App(boardElement);
   </script>
 </body>
