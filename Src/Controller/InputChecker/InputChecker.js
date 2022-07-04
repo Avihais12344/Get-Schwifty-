@@ -21,6 +21,8 @@ class InputChecker extends InputCheckerBase {
           !this.#IsPositionValid(gameBoard, testX, testY)
         ) {
           continue;
+        } else if (testX < 0 || testY < 0) {
+          continue;
         }
         if (gameBoard.ElementAt(testX, testY) == gameBoard.EmptyCellValue) {
           return [testX, testY];
