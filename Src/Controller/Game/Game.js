@@ -41,7 +41,7 @@ class Game extends GameBase {
     // Checking of after move.
     this.#_isWon = this.#_winningChecker.CheckWinning(this.GameBoard);
     this.#_isDone =
-      this.#_isWon || this.#_boardChecker.IsBoardSolvable(this.GameBoard);
+      this.#_isWon || !this.#_boardChecker.IsBoardSolvable(this.GameBoard);
     return true;
   }
   get IsWon() {
