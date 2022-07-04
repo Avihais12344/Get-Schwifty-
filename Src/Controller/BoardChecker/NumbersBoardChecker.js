@@ -44,16 +44,16 @@ class NumbersBoardChecker extends BoardCheckerBase {
     const boardCells = board.Data;
     var numInversions = 0;
     for (
-      let boardCellsIndex = 0;
-      boardCellsIndex < boardCells.length;
-      boardCellsIndex++
+      let boardCellIndex = 0;
+      boardCellIndex < boardCells.length;
+      boardCellIndex++
     ) {
       // don't count the empty cell.
-      if (currentValue == boardToCheck.EmptyCellValue) {
+      if (boardCells[boardCellIndex] == board.EmptyCellValue) {
         continue;
       }
       // Sum inversions.
-      numInversions += this.#CountInversions(boardCellIndex, boardToCheck);
+      numInversions += this.#CountInversions(boardCellIndex, boardCells);
     }
     return numInversions;
   }
