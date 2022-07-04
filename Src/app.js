@@ -10,6 +10,14 @@ class App {
         if (this.Game.OnNewInput(x, y)) {
           console.info("a change happened to the board!");
           this.BoardDisplay.UpdateDisplay(this.Game.GameBoard);
+          if (this.Game.IsDone) {
+            console.info("Game done!");
+          }
+          if (this.Game.IsWon) {
+            console.info("User won");
+          } else {
+            console.info("User lost");
+          }
         } else {
           console.info("Got invalid input from the user!");
         }
