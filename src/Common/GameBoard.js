@@ -1,9 +1,14 @@
 class GameBoard {
   #_board;
   #_boardLength;
-  constructor(boardValues, boardLength) {
+  constructor(boardValues) {
     this.#_board = boardValues;
-    this.#_boardLength = boardLength;
+    this.#_boardLength = Math.sqrt(boardValues.length);
+    if (!this.#IsBoardLengthOk()) {
+      throw new TypeError(
+        "The board it got is invalid, the board must be square! The squre of the size of the values array must be a natural number!"
+      );
+    }
   }
 
   get Data() {
@@ -40,5 +45,14 @@ class GameBoard {
   }
   #CalculatePosition(x, y) {
     return x + y * this.#_boardLength;
+  }
+  #IsBoardLengthOk() {
+    return (
+      typeof this.#_boardLength == "number" &&
+      !isNaN(this.#_boardLength) &&
+      isFinite(this.#_boardLength) &&
+      this.#_boardLength > 0 &&
+      Math.floor(this.#_boardLength) === this.#_boardLength
+    );
   }
 }
