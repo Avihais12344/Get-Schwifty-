@@ -23,7 +23,7 @@ class InputChecker extends InputCheckerBase {
           continue;
         }
         if (gameBoard.ElementAt(testX, testY) == gameBoard.EmptyCellValue) {
-          return [x, y];
+          return [testX, testY];
         }
       }
     }
