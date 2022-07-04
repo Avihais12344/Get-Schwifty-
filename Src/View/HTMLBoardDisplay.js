@@ -4,7 +4,7 @@ class HTMLBoardDisplay extends BoardDisplayBase {
   #_boardDocument;
   constructor(board, callbackFunctionOnClick, boardElement) {
     super();
-    this.#_oldBoard = board;
+    this.#_oldBoard = board.clone();
     this.#_boardElement = boardElement;
     this.#_boardDocument = boardElement.ownerDocument;
     // Create the board.
@@ -13,12 +13,13 @@ class HTMLBoardDisplay extends BoardDisplayBase {
   UpdateDisplay(newBoard) {
     //Detect where the change has happened.
     let diffs = this.#_oldBoard.ScanDifferences(newBoard);
+    console.debug(`Diffs: ${diffs}`);
     let diff1 = this.#DifferenceToCellId(diffs[0]);
     let diff2 = this.#DifferenceToCellId(diffs[1]);
     // Move the nodes according to the change.
     this.#SwapCells(diff1, diff2);
     // Update the board.
-    this.#_oldBoard = newBoard;
+    this.#_oldBoard = newBoard.clone();
   }
   #SwapCells(oldPosition, newPosition) {
     const newPosElement = this.#_boardDocument.getElementById(newPosition);
