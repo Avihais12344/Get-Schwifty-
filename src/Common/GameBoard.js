@@ -28,9 +28,9 @@ class GameBoard {
     }
     let diffs = [];
     //run on y.
-    for (y = 0; y < this.#_boardLength; y++) {
+    for (let y = 0; y < this.#_boardLength; y++) {
       // run on x.
-      for (x = 0; x < this.#_boardLength; x++) {
+      for (let x = 0; x < this.#_boardLength; x++) {
         if (this.ElementAt(x, y) != otherBoard.ElementAt(x, y)) {
           diffs.push({ X: x, Y: y });
         }
