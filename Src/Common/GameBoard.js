@@ -17,6 +17,9 @@ class GameBoard {
   get BoardLength() {
     return this.#_boardLength;
   }
+  get EmptyCellValue() {
+    return 0;
+  }
   ElementAt(x, y) {
     return this.#_board[this.#CalculatePosition(x, y)];
   }
