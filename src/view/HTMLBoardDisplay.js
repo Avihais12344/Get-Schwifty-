@@ -1,27 +1,36 @@
 class HTMLBoardDisplay extends BoardDisplayBase {
   #_oldBoard;
+  #_boardElement;
+  #_boardDocument;
   constructor(board, callbackFunctionOnClick, boardElement) {
     super();
     this.#_oldBoard = board;
+    this.#_boardElement = boardElement;
+    this.#_boardDocument = boardElement.ownerDocument;
     // Create the board.
-    this.#PrepareBoard(callbackFunctionOnClick, boardElement);
+    this.#PrepareBoard(callbackFunctionOnClick);
   }
   UpdateDisplay(newBoard) {
     //Detect where the change has happened.
     let diffs = this.#_oldBoard.ScanDifferences(newBoard);
-    let diff1 = this.#DifferenceToCellId(changes[0]);
-    let diff2 = this.#DifferenceToCellId(changes[1]);
+    let diff1 = this.#DifferenceToCellId(diffs[0]);
+    let diff2 = this.#DifferenceToCellId(diffs[1]);
     // Move the nodes according to the change.
-    this.#SwapCells(change1, change2);
+    this.#SwapCells(diff1, diff2);
     // Update the board.
     this.#_oldBoard = newBoard;
   }
-  // todo.
-  #SwapCells(oldPosition, newPosition) {}
+  #SwapCells(oldPosition, newPosition) {
+    const newPosElement = this.#_boardDocument.getElementById(newPosition);
+    const oldPosElement = this.#_boardDocument.getElementById(oldPosition);
+    const oldValue = oldPosElement.innerText;
+    oldPosElement.innerText = newPosElement.innerText;
+    newPosElement.innerText = oldValue;
+  }
   #DifferenceToCellId(change) {
     return change.X.toString() + "," + change.Y.toString();
   }
-  #PrepareBoard(callbackFunctionOnClick, boardElement) {
+  #PrepareBoard(callbackFunctionOnClick) {
     const boardLength = this.#_oldBoard.BoardLength;
     for (let y = 0; y < boardLength; y++) {
       for (let x = 0; x < boardLength; x++) {
@@ -39,7 +48,8 @@ class HTMLBoardDisplay extends BoardDisplayBase {
           "id",
           this.#DifferenceToCellId({ X: x, Y: y })
         );
-        boardElement.appendChild(buttonElement);
+        buttonElement.setAttribute("class", "board-cell");
+        this.#_boardElement.appendChild(buttonElement);
       }
     }
   }
