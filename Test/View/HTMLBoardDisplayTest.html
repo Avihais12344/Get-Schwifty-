@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<head>
+  <title>GetSchwifty</title>
+  <meta encoding="UTF-8" />
+  <meta name="description" content="The GetSchwifty game!" />
+  <script src="../../src/view/BoardDisplayBase.js"></script>
+  <script src="../../src/view/HTMLBoardDisplay.js"></script>
+  <script src="../../src/Common/GameBoard.js"></script>
+</head>
+
+<body>
+  <header>
+    <h1>GetSchwifty game</h1>
+  </header>
+  <div class="game-board" id="game-board"></div>
+  <footer>
+    <p>Author: Avihai Shalom</p>
+    <p><a herf="../LICENSE">License</a></p>
+    <p><a herf="../GetSchwifty.pdf">Get Schwifty explainng page</a></p>
+    <p><a herf="../README">Readme</a></p>
+  </footer>
+  <script>
+    const boardElement = document.getElementById("game-board");
+    console.log("Got game-board element: " + boardElement);
+    var gameBoard = new GameBoard([1, 2, 3, 4, 5, 0, 6, 7, 8]);
+    var board = new HTMLBoardDisplay(
+      gameBoard,
+      function (x, y) {
+        console.log("hello " + x + y);
+      },
+      boardElement
+    );
+    gameBoard = new GameBoard([2, 1, 3, 4, 5, 0, 6, 7, 8]);
+    board.UpdateDisplay(gameBoard);
+  </script>
+</body>
