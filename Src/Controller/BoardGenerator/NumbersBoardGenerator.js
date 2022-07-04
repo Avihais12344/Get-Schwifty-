@@ -12,7 +12,7 @@ class NumbersBoardGenerator extends BoardGeneratorBase {
     while (numbersGenerated.size < maxValue) {
       numbersGenerated.add(this.#_rng.GenerateNumber(0, maxValue - 1));
     }
-    console.log("generated board: " + Array.from(numbersGenerated));
+    console.debug("generated board: " + Array.from(numbersGenerated));
     return new GameBoard(Array.from(numbersGenerated));
   }
 }
