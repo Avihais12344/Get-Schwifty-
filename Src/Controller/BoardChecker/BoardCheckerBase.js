@@ -1,0 +1,3 @@
+class BoardCheckerBase {
+  IsBoardSolvable(boardToCheck) {}
+}
